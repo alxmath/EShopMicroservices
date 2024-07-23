@@ -1,4 +1,4 @@
-using Discount.Grpc;
+using Discount.Grpc.Data;
 using Discount.Grpc.Services;
 using Microsoft.EntityFrameworkCore;
 

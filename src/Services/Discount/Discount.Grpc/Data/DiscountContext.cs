@@ -1,7 +1,7 @@
 ﻿using Discount.Grpc.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Discount.Grpc;
+namespace Discount.Grpc.Data;
 
 public class DiscountContext : DbContext
 {
