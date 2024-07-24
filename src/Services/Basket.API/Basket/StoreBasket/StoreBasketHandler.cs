@@ -17,7 +17,8 @@ public class StoreBasketCommandHandler(IBasketRepository repository)
 {
     public async Task<StoreBasketResult> Handle(StoreBasketCommand command, CancellationToken cancellationToken)
     {
-        // TODO: update cache
+        // TODO: communicate with Discount.Grpc
+
         await repository.StoreBasket(command.Cart, cancellationToken);
 
         return new StoreBasketResult(command.Cart.UserName);
