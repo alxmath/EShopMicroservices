@@ -4,6 +4,10 @@ public class Order : Aggregate<OrderId>
 {
     private readonly List<OrderItem> _orderItems = [];
 
+    private Order()
+    {
+    }
+
     private Order(OrderId id, CustomerId customerId, OrderName orderName, Address shippingAddress, Address billingAddress, Payment payment, OrderStatus status)
     {
         Id = id;
@@ -24,7 +28,11 @@ public class Order : Aggregate<OrderId>
     public Payment Payment { get; private set; } = default!;
     public OrderStatus Status { get; private set; } = OrderStatus.Pending;
 
-    public decimal TotalPrice => OrderItems.Sum(x => x.Price * x.Quantity);
+    public decimal TotalPrice
+    {
+        get => OrderItems.Sum(x => x.Price * x.Quantity);
+        private set { }
+    }
 
     public static Order Create(OrderId id, CustomerId customerId, OrderName orderName, Address shippingAddress, Address billingAddress, Payment payment)
     {
