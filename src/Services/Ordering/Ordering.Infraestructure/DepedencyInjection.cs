@@ -1,6 +1,7 @@
-﻿global using Microsoft.Extensions.Configuration;
-global using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using Ordering.Application.Data;
 
 namespace Ordering.Infraestructure;
 
@@ -20,7 +21,7 @@ public static class DepedencyInjection
             options.UseSqlServer(connectionString);
         });
 
-        //services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
+        services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
 
         return services;
     }
