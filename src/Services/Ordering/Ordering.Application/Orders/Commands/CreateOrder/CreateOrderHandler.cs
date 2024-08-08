@@ -7,6 +7,7 @@ public class CreateOrderHandler(IApplicationDbContext dbContext) : ICommandHandl
         var order = CreateNewOrder(command.Order);
 
         dbContext.Orders.Add(order);
+
         await dbContext.SaveChangesAsync(cancellationToken);
 
         return new CreateOrderResult(order.Id.Value);

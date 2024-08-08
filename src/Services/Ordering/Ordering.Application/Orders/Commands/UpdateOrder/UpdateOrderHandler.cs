@@ -12,6 +12,7 @@ public class UpdateOrderHandler(IApplicationDbContext dbContext) : ICommandHandl
         UpdateOrderWithNewValues(order, command.Order);
 
         dbContext.Orders.Update(order);
+
         await dbContext.SaveChangesAsync(cancellationToken);
 
         return new UpdateOrderResult(true);
